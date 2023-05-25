@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECG Graph</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Sistema de Telemedicina Seguro</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="servicios.html" class="nav-link">Servicios</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Nosotros</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contáctanos</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-5">
+        <div class="card">
+          <div class="card-header">Electrocardiograma Cifrado</div>
+          <div class="card-body">
+            <div id="ecg-graph"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="row">
+          <label for="">INGRESA LA CLAVE</label>
+          <input type="text">
+          <button type="button" class="btn btn-primary">Descifrar</button>
+        </div>
+
+      </div>
+      <div class="col-5">
+        <div class="card">
+          <div class="card-header">Electrocardiograma Descifrado</div>
+          <div class="card-body">
+            <div id="ecg-graph2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-white py-3">
+    <div class="container">
+      <div class="row">
+    <div class="col-md-4">
+      <h3>Contáctanos</h3>
+      <p>Empresa</p>
+      <p>Dirección</p>
+      <p>Ciudad, Estado CP</p>
+      <p>Teléfono: XXX-XXX-XXXX</p>
+      <p>Email: correo@gmail.com</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-facebook fa-2x"></i></a></li>
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a></li>
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a></li>
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Enlaces útiles</h3>
+      <ul class="list-unstyled">
+        <li><a href="index.html" class="text-white">Home</a></li>
+        <li><a href="servicios.html" class="text-white">Servicios</a></li>
+        <li><a href="#" class="text-white">Nosotros</a></li>
+        <li><a href="#" class="text-white">Contáctanos</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Newsletter</h3>
+      <form>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email Address">
+        </div>
+        <button type="submit" class="btn btn-primary">Suscríbete</button>
+      </form>
+    </div>
+  </div>
+</div>
+</footer>
+  <script>
+    var data = {
+      x: [...Array(400).keys()],
+      y: [
+        0.970, 0.957, 0.944, 0.929, 0.917, 0.908, 0.901, 0.894, 0.888, 0.883, 0.878, 0.873, 0.869, 0.864, 0.859, 0.854, 0.849, 0.844, 0.839, 0.835, 
+        0.831, 0.828, 0.824, 0.820, 0.817, 0.813, 0.809, 0.805, 0.802, 0.798, 0.794, 0.791, 0.787, 0.784, 0.780, 0.777, 0.773, 0.770, 0.766, 0.763, 
+        0.760, 0.756, 0.753, 0.750, 0.747, 0.744, 0.741, 0.738, 0.735, 0.732, 0.729, 0.726, 0.723, 0.720, 0.717, 0.715, 0.712, 0.709, 0.706, 0.704, 
+        0.701, 0.698, 0.696, 0.693, 0.691, 0.688, 0.685, 0.683, 0.680, 0.678, 0.675, 0.673, 0.670, 0.668, 0.665, 0.663, 0.661, 0.658, 0.656, 0.654, 
+        0.651, 0.649, 0.647, 0.645, 0.642, 0.640, 0.638, 0.636, 0.634, 0.631, 0.629, 0.627, 0.625, 0.623, 0.621, 0.619, 0.617, 0.615, 0.613, 0.611, 0.611, 0.613, 0.615, 0.617, 0.619, 0.621, 0.623, 0.625, 0.627, 0.629, 0.631, 0.634, 0.636, 0.638, 0.640, 0.642, 0.645, 0.647, 0.649, 0.651, 
+        0.654, 0.656, 0.658, 0.661, 0.663, 0.665, 0.668, 0.670, 0.673, 0.675, 0.678, 0.680, 0.683, 0.685, 0.688, 0.691, 0.693, 0.696, 0.698, 0.701, 
+        0.704, 0.706, 0.709, 0.712, 0.715, 0.717, 0.720, 0.723, 0.726, 0.729, 0.732, 0.735, 0.738, 0.741, 0.744, 0.747, 0.750, 0.753, 0.756, 0.760, 
+        0.763, 0.766, 0.770, 0.773, 0.777, 0.780, 0.784, 0.787, 0.791, 0.794, 0.798, 0.802, 0.805, 0.809, 0.813, 0.817, 0.820, 0.824, 0.828, 0.831, 
+        0.835, 0.839, 0.844, 0.849, 0.854, 0.859, 0.864, 0.869, 0.873, 0.878, 0.883, 0.888, 0.894, 0.901, 0.908, 0.917, 0.929, 0.944, 0.957, 0.970, 0.970, 0.957, 0.944, 0.929, 0.917, 0.908, 0.901, 0.894, 0.888, 0.883, 0.878, 0.873, 0.869, 0.864, 0.859, 0.854, 0.849, 0.844, 0.839, 0.835, 
+        0.831, 0.828, 0.824, 0.820, 0.817, 0.813, 0.809, 0.805, 0.802, 0.798, 0.794, 0.791, 0.787, 0.784, 0.780, 0.777, 0.773, 0.770, 0.766, 0.763, 
+        0.760, 0.756, 0.753, 0.750, 0.747, 0.744, 0.741, 0.738, 0.735, 0.732, 0.729, 0.726, 0.723, 0.720, 0.717, 0.715, 0.712, 0.709, 0.706, 0.704, 
+        0.701, 0.698, 0.696, 0.693, 0.691, 0.688, 0.685, 0.683, 0.680, 0.678, 0.675, 0.673, 0.670, 0.668, 0.665, 0.663, 0.661, 0.658, 0.656, 0.654, 
+        0.651, 0.649, 0.647, 0.645, 0.642, 0.640, 0.638, 0.636, 0.634, 0.631, 0.629, 0.627, 0.625, 0.623, 0.621, 0.619, 0.617, 0.615, 0.613, 0.611, 0.611, 0.613, 0.615, 0.617, 0.619, 0.621, 0.623, 0.625, 0.627, 0.629, 0.631, 0.634, 0.636, 0.638, 0.640, 0.642, 0.645, 0.647, 0.649, 0.651, 
+        0.654, 0.656, 0.658, 0.661, 0.663, 0.665, 0.668, 0.670, 0.673, 0.675, 0.678, 0.680, 0.683, 0.685, 0.688, 0.691, 0.693, 0.696, 0.698, 0.701, 
+        0.704, 0.706, 0.709, 0.712, 0.715, 0.717, 0.720, 0.723, 0.726, 0.729, 0.732, 0.735, 0.738, 0.741, 0.744, 0.747, 0.750, 0.753, 0.756, 0.760, 
+        0.763, 0.766, 0.770, 0.773, 0.777, 0.780, 0.784, 0.787, 0.791, 0.794, 0.798, 0.802, 0.805, 0.809, 0.813, 0.817, 0.820, 0.824, 0.828, 0.831, 
+        0.835, 0.839, 0.844, 0.849, 0.854, 0.859, 0.864, 0.869, 0.873, 0.878, 0.883, 0.888, 0.894, 0.901, 0.908, 0.917, 0.929, 0.944, 0.957, 0.970
+      ],
+      type: 'scatter',
+      mode: 'lines',
+      line: {
+        color: 'red',
+        width: 2
+      }
+    };
+
+    var layout = {
+      xaxis: {
+        title: 'Time (ms)'
+      },
+      yaxis: {
+        title: 'Voltage (mV)'
+      }
+    };
+
+    Plotly.newPlot('ecg-graph', [data], layout);
+    Plotly.newPlot('ecg-graph2', [data], layout);
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
