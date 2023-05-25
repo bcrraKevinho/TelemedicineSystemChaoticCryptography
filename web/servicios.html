@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Hospital Name</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Hospital Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item active"><a href="#" class="nav-link">Servicios</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Nosotros</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contáctanos</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container my-5">
+    <h1>Electrocardiogramas de los pacientes</h1>
+    <br>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-header">Arturo (0995595)</div>
+          <div class="card-body">
+            <div id="cardiology-graph"></div>
+            <p class="card-text"><a href="ruta/a/mi/archivo.pdf" class="btn btn-primary me-1" download>Descargar ECG</a>
+            <a href="ruta/a/mi/archivo.pdf" class="btn btn-primary" download>Descargar ECG</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-header">Eugenio (0999555)</div>
+          <div class="card-body">
+            <div id="neurology-graph"></div>
+            <p class="card-text"><a href="ruta/a/mi/archivo.pdf" class="btn btn-primary" download>Descargar ECG</a>
+</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-header">Julieta (088488)</div>
+          <div class="card-body">
+            <div id="oncology-graph"></div>
+            <p class="card-text"><a href="ruta/a/mi/archivo.pdf" class="btn btn-primary" download>Descargar ECG</a>
+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-white py-3">
+    <div class="container">
+      <div class="row">
+    <div class="col-md-4">
+      <h3>Contáctanos</h3>
+      <p>Empresa</p>
+      <p>Dirección</p>
+      <p>Ciudad, Estado CP</p>
+      <p>Teléfono: XXX-XXX-XXXX</p>
+      <p>Email: correo@gmail.com</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-facebook fa-2x"></i></a></li>
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a></li>
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a></li>
+        <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Enlaces útiles</h3>
+      <ul class="list-unstyled">
+        <li><a href="index.html" class="text-white">Home</a></li>
+        <li><a href="servicios.html" class="text-white">Servicios</a></li>
+        <li><a href="#" class="text-white">Nosotros</a></li>
+        <li><a href="#" class="text-white">Contáctanos</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Newsletter</h3>
+      <form>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email Address">
+        </div>
+        <button type="submit" class="btn btn-primary">Suscríbete</button>
+      </form>
+    </div>
+  </div>
+</div>
+</footer>
+</body>
+</html>
